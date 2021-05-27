@@ -12,5 +12,15 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + (i < arr.length - 1 ? "," : ""));
         }
+
+        System.out.println("\n============================================");
+
+        String arr2[] = {"simon","CAse","casa","prueba","VIdeojuegos"};
+
+        arr2 = RadixSort.sort(arr2);
+
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.print(arr2[i] + (i < arr2.length - 1 ? "," : ""));
+        }
     }
 }

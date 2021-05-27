@@ -1,5 +1,7 @@
 package com.team.itb.wave8.sortdemo.utils;
 
+import java.util.Locale;
+
 public class StringUtils {
 
     public static String[] toStringArray (int arr[]){
@@ -46,7 +48,7 @@ public class StringUtils {
     }
 
     public static String getCharacterAtPosition(String word, int pos){
-        return String.valueOf(word.charAt(pos));
+        return String.valueOf(word.charAt(pos)).toLowerCase();
     }
 
 }

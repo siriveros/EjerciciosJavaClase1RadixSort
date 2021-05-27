@@ -7,10 +7,23 @@ import java.util.stream.Stream;
 
 public class RadixSort {
 
-    public static final String DEFAULT_NORMALIZE_CHARACTER = "0";
+    public static final String DEFAULT_NUMBER_NORMALIZE_CHARACTER = "0";
+    public static final String DEFAULT_STRING_NORMALIZE_CHARACTER = " ";
 
     public static int[] sort(int arr[],String normalizeCharacter){
         String strArr[] = StringUtils.toStringArray(arr);
+        return StringUtils.toIntArray(sort(strArr,normalizeCharacter));
+    }
+
+    public static int[] sort(int arr[]){
+        return sort(arr, DEFAULT_NUMBER_NORMALIZE_CHARACTER);
+    }
+
+    public static String[] sort(String arr[]){
+        return sort(arr, DEFAULT_STRING_NORMALIZE_CHARACTER);
+    }
+
+    public static String[] sort(String strArr[],String normalizeCharacter){
         int maxStringLength = StringUtils.maxLength(strArr);
         strArr = StringUtils.normalizeStringArray(strArr,maxStringLength, normalizeCharacter);
 
@@ -34,13 +47,11 @@ public class RadixSort {
             map.clear();
         }
 
-        return StringUtils.toIntArray(strArr);
+        for (int i = 0; i < strArr.length; i++) {
+            strArr[i] = strArr[i].trim();
+        }
+        return strArr;
     }
-
-    public static int[] sort(int arr[]){
-        return sort(arr,DEFAULT_NORMALIZE_CHARACTER);
-    }
-
 
 
 
